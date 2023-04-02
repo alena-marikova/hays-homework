@@ -1,12 +1,13 @@
 package com.hays.homework.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.hays.homework.entity.Customer;
 import org.springframework.lang.NonNull;
 
 import java.time.LocalDate;
 
 public class QuotationDTO {
+
+    static final long serialVersionUID = 1L;
 
     private Long id;
 

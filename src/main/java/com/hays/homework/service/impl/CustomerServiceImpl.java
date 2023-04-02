@@ -1,9 +1,10 @@
 package com.hays.homework.service.impl;
 
 import com.hays.homework.entity.Customer;
-import com.hays.homework.exception.CustomerNotFoundException;
+import com.hays.homework.service.exception.CustomerNotFoundException;
 import com.hays.homework.repository.CustomerRepository;
 import com.hays.homework.service.CustomerService;
+import com.hays.homework.service.validator.CustomerValidator;
 import jakarta.transaction.Transactional;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +13,7 @@ import java.util.Optional;
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
-    private CustomerRepository customerRepository;
+    private final CustomerRepository customerRepository;
 
     public CustomerServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
@@ -24,7 +25,8 @@ public class CustomerServiceImpl implements CustomerService {
         if (customer.getId() == null || customerRepository.getReferenceById(customer.getId()) == null){
             throw new CustomerNotFoundException(customer.getId());
         }
-        Customer savedCustomer = customerRepository.save(customer);
+        CustomerValidator.validateCustomer(customer);
+        customerRepository.save(customer);
     }
 
     @Override

@@ -11,6 +11,8 @@ import java.time.LocalDate;
 @Data
 public class CustomerDTO implements Serializable {
 
+    static final long serialVersionUID = 1L;
+
     private Long id;
 
     private String firstName;

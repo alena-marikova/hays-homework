@@ -1,4 +1,4 @@
-package com.hays.homework.exception;
+package com.hays.homework.service.exception;
 
 public class CustomerNotFoundException extends RuntimeException{
 

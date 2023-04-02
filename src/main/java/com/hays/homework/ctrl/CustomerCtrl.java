@@ -24,6 +24,7 @@ public class CustomerCtrl {
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
+    @ExceptionHandler()
     public void updateCustomer(@RequestBody CustomerDTO customerDTO){
         Customer customer = modelMapper.map(customerDTO, Customer.class);
         customerService.updateCustomer(customer);
