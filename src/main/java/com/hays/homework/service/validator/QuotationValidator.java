@@ -10,7 +10,7 @@ public class QuotationValidator {
 
     public static void validateQuotation(Quotation quotation){
         Long insuredAmount = quotation.getInsuredAmount();
-        if (insuredAmount < 0){
+        if (insuredAmount <= 0){
             throw new QuotationNotValidException("Insured amount has to be bigger then 0");
         }
         CustomerValidator.validateCustomer(quotation.getCustomer());

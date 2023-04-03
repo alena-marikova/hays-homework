@@ -3,12 +3,14 @@ package com.hays.homework.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.lang.NonNull;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
 public class CustomerDTO implements Serializable {
 
     static final long serialVersionUID = 1L;

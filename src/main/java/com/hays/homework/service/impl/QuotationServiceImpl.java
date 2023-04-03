@@ -18,8 +18,8 @@ public class QuotationServiceImpl implements QuotationService {
 
     @Override
     @Transactional
-    public void createQuotation(Quotation quotation) {
+    public Quotation createQuotation(Quotation quotation) {
         QuotationValidator.validateQuotation(quotation);
-        quotationRepository.save(quotation);
+        return quotationRepository.save(quotation);
     }
 }

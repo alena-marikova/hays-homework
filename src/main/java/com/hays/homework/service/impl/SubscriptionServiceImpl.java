@@ -21,9 +21,9 @@ public class SubscriptionServiceImpl implements SubscriptionService {
 
     @Override
     @Transactional
-    public void createSubscription(Subscription subscription) {
+    public Subscription createSubscription(Subscription subscription) {
         SubscriptionValidator.validateSubscription(subscription);
-        subscriptionRepository.save(subscription);
+        return subscriptionRepository.save(subscription);
     }
 
     @Override

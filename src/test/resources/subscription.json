@@ -1,0 +1,17 @@
+{
+  "quotation": {
+    "beginningOfInsurance": "12-12-2023",
+    "insuredAmount": 4000,
+    "dateOfSigningMortgage": "11-12-2023",
+    "customer": {
+      "firstName": "FirstName",
+      "lastName": "LastName",
+      "middleName": "MiddleName",
+      "email": "test@test.com",
+      "birthDate": "01-12-1971",
+      "phoneNumber": "+420795963965"
+    }
+  },
+  "startDate": "12-12-2023",
+  "validUntil": "12-12-2050"
+}

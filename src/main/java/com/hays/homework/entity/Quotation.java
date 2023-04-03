@@ -2,6 +2,7 @@ package com.hays.homework.entity;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Parameter;
 
@@ -9,6 +10,7 @@ import java.time.LocalDate;
 
 @Entity(name = "QUOTATION")
 @Data
+@NoArgsConstructor
 public class Quotation {
 
     @Id

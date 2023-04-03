@@ -2,11 +2,13 @@ package com.hays.homework.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 import java.time.LocalDate;
 
 @Data
+@NoArgsConstructor
 public class SubscriptionDTO implements Serializable {
 
     static final long serialVersionUID = 1L;

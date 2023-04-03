@@ -21,12 +21,12 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     @Transactional
-    public void updateCustomer(Customer customer){
+    public Customer updateCustomer(Customer customer){
         if (customer.getId() == null || customerRepository.getReferenceById(customer.getId()) == null){
             throw new CustomerNotFoundException(customer.getId());
         }
         CustomerValidator.validateCustomer(customer);
-        customerRepository.save(customer);
+        return customerRepository.save(customer);
     }
 
     @Override

@@ -5,11 +5,11 @@ import com.hays.homework.entity.Customer;
 import com.hays.homework.service.CustomerService;
 import org.modelmapper.ModelMapper;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Controller;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 
-@Controller
+@RestController
 @RequestMapping("/api/customer")
 public class CustomerCtrl {
 
@@ -22,14 +22,19 @@ public class CustomerCtrl {
         this.modelMapper = modelMapper;
     }
 
-    @PutMapping
+    @PutMapping(
+            consumes = MediaType.APPLICATION_JSON_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseStatus(HttpStatus.OK)
-    public void updateCustomer(@RequestBody CustomerDTO customerDTO){
+    public CustomerDTO updateCustomer(@RequestBody CustomerDTO customerDTO){
         Customer customer = modelMapper.map(customerDTO, Customer.class);
-        customerService.updateCustomer(customer);
+        Customer updatedCustomer = customerService.updateCustomer(customer);
+        return modelMapper.map(updatedCustomer, CustomerDTO.class);
     }
 
-    @GetMapping
+    @GetMapping(
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
     public CustomerDTO getCustomer(@RequestParam("id") Long id){
         Customer customer = customerService.getCustomer(id);
         return modelMapper.map(customer, CustomerDTO.class);
